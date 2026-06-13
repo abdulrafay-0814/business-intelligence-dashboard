@@ -36,4 +36,26 @@ export interface Customer {
   region: string;
 }
 
+
+// Order Type
+export interface Order {
+  id: number;
+  orderNumber: string;
+  customer: string;
+  product: string;
+  amount: number;
+  status: 'Pending' | 'Processing' | 'Shipped' | 'Delivered' | 'Cancelled';
+  date: string;
+}
+
+// Notification Type
+export interface Notification {
+  id: number;
+  title: string;
+  message: string;
+  time: string;
+  type: 'order' | 'payment' | 'customer' | 'report' | 'system';
+  read: boolean;
+}
+
 export type Theme = "light" | "dark";

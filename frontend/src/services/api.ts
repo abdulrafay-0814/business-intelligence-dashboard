@@ -6,6 +6,8 @@ import type {
   CustomerGrowth,
   CategoryDistribution,
   Customer,
+  Order,
+  Notification,
 } from '../types';
 
 // Base URL of JSON Server
@@ -53,6 +55,34 @@ export const fetchCategoryDistribution = async (): Promise<CategoryDistribution[
 // Fetch Customers
 export const fetchCustomers = async (): Promise<Customer[]> => {
   const response = await api.get<Customer[]>('/customers');
+  return response.data;
+};
+// Add new customer
+export const addCustomer = async (customer: Omit<Customer, 'id'>): Promise<Customer> => {
+  const response = await api.post<Customer>('/customers', customer);
+  return response.data;
+};
+
+// Update existing customer
+export const updateCustomer = async (id: number, customer: Omit<Customer, 'id'>): Promise<Customer> => {
+  const response = await api.put<Customer>(`/customers/${id}`, customer);
+  return response.data;
+};
+
+// Delete customer
+export const deleteCustomer = async (id: number): Promise<void> => {
+  await api.delete(`/customers/${id}`);
+};
+
+// Fetch Orders
+export const fetchOrders = async (): Promise<Order[]> => {
+  const response = await api.get<Order[]>('/orders');
+  return response.data;
+};
+
+// Fetch Notifications
+export const fetchNotifications = async (): Promise<Notification[]> => {
+  const response = await api.get<Notification[]>('/notifications');
   return response.data;
 };
 

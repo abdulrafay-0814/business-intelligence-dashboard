@@ -6,50 +6,45 @@
     "monthlyGrowth": 12.5,
     "conversionRate": 3.8
   },
-
   "revenueTrend": [
-    { "month": "Jan", "revenue": 15000 },
-    { "month": "Feb", "revenue": 18000 },
-    { "month": "Mar", "revenue": 22000 },
-    { "month": "Apr", "revenue": 19000 },
-    { "month": "May", "revenue": 25000 },
-    { "month": "Jun", "revenue": 28000 },
-    { "month": "Jul", "revenue": 32000 },
-    { "month": "Aug", "revenue": 30000 },
-    { "month": "Sep", "revenue": 35000 },
-    { "month": "Oct", "revenue": 38000 },
-    { "month": "Nov", "revenue": 42000 },
-    { "month": "Dec", "revenue": 45000 }
+    { "month": "Jan", "revenue": 15000, "id": "hQ7GOMfhKP0" },
+    { "month": "Feb", "revenue": 18000, "id": "rjTHHFZWf4A" },
+    { "month": "Mar", "revenue": 22000, "id": "xokZtw--GWg" },
+    { "month": "Apr", "revenue": 19000, "id": "CtarcKQoHv8" },
+    { "month": "May", "revenue": 25000, "id": "snGPz9AvKhA" },
+    { "month": "Jun", "revenue": 28000, "id": "UZK3BkQJ56M" },
+    { "month": "Jul", "revenue": 32000, "id": "-KybD5HUSsA" },
+    { "month": "Aug", "revenue": 30000, "id": "GFoOxwn0_vU" },
+    { "month": "Sep", "revenue": 35000, "id": "-K5SQrss8Xc" },
+    { "month": "Oct", "revenue": 38000, "id": "zO3C62QY3U4" },
+    { "month": "Nov", "revenue": 42000, "id": "DR__VzPIjak" },
+    { "month": "Dec", "revenue": 45000, "id": "v4_Mpp8umR4" }
   ],
-
   "salesComparison": [
-    { "month": "Jan", "thisYear": 4000, "lastYear": 2400 },
-    { "month": "Feb", "thisYear": 3000, "lastYear": 1398 },
-    { "month": "Mar", "thisYear": 5000, "lastYear": 3800 },
-    { "month": "Apr", "thisYear": 4500, "lastYear": 3908 },
-    { "month": "May", "thisYear": 6000, "lastYear": 4800 },
-    { "month": "Jun", "thisYear": 5500, "lastYear": 3800 }
+    { "month": "Jan", "thisYear": 4000, "lastYear": 2400, "id": "SB7-z8LAuEw" },
+    { "month": "Feb", "thisYear": 3000, "lastYear": 1398, "id": "WeyYwfntv44" },
+    { "month": "Mar", "thisYear": 5000, "lastYear": 3800, "id": "BPEesN6et5M" },
+    { "month": "Apr", "thisYear": 4500, "lastYear": 3908, "id": "5SnKUBCswlI" },
+    { "month": "May", "thisYear": 6000, "lastYear": 4800, "id": "V4ETJWHR4wk" },
+    { "month": "Jun", "thisYear": 5500, "lastYear": 3800, "id": "OtDoVWurHTs" }
   ],
-
   "customerGrowth": [
-    { "month": "Jan", "customers": 200 },
-    { "month": "Feb", "customers": 350 },
-    { "month": "Mar", "customers": 480 },
-    { "month": "Apr", "customers": 620 },
-    { "month": "May", "customers": 780 },
-    { "month": "Jun", "customers": 950 },
-    { "month": "Jul", "customers": 1100 },
-    { "month": "Aug", "customers": 1250 }
+    { "month": "Jan", "customers": 200, "id": "Ihx3dDJ_k6M" },
+    { "month": "Feb", "customers": 350, "id": "KMEDKB7IevM" },
+    { "month": "Mar", "customers": 480, "id": "LPiRtU72N_U" },
+    { "month": "Apr", "customers": 620, "id": "1VJAPOrce24" },
+    { "month": "May", "customers": 780, "id": "xNy4Ul4rNm0" },
+    { "month": "Jun", "customers": 950, "id": "BUoz3eEOfOY" },
+    { "month": "Jul", "customers": 1100, "id": "r4jIpMHQzl8" },
+    { "month": "Aug", "customers": 1250, "id": "jN1YNvUAL-I" }
   ],
-
   "categoryDistribution": [
-    { "name": "Electronics", "value": 35 },
-    { "name": "Clothing", "value": 25 },
-    { "name": "Food", "value": 20 },
-    { "name": "Books", "value": 12 },
-    { "name": "Others", "value": 8 }
+    { "name": "Electronics", "value": 35, "id": "6MF0gZYCSGE" },
+    { "name": "Clothing", "value": 25, "id": "ShdNI4a4kxA" },
+    { "name": "Food", "value": 20, "id": "eKHHiO0d0tA" },
+    { "name": "Books", "value": 12, "id": "uA9rU5cv5CA" },
+    { "name": "Others", "value": 8, "id": "fMopklQSZ3s" }
   ],
-
   "customers": [
     { "id": 1, "name": "Ali Khan", "revenue": 5000, "orders": 12, "status": "Active", "region": "Karachi" },
     { "id": 2, "name": "Sara Ahmed", "revenue": 8000, "orders": 20, "status": "Active", "region": "Lahore" },
@@ -66,5 +61,27 @@
     { "id": 13, "name": "Imran Khan", "revenue": 8500, "orders": 19, "status": "Inactive", "region": "Karachi" },
     { "id": 14, "name": "Sana Riaz", "revenue": 10500, "orders": 24, "status": "Active", "region": "Lahore" },
     { "id": 15, "name": "Faisal Mahmood", "revenue": 4800, "orders": 11, "status": "Active", "region": "Islamabad" }
-  ]
+  ],
+  "orders": [
+    { "id": 1, "orderNumber": "ORD-001", "customer": "Ali Khan", "product": "Laptop Pro", "amount": 1299, "status": "Delivered", "date": "2026-06-10" },
+    { "id": 2, "orderNumber": "ORD-002", "customer": "Sara Ahmed", "product": "Wireless Mouse", "amount": 49, "status": "Processing", "date": "2026-06-11" },
+    { "id": 3, "orderNumber": "ORD-003", "customer": "Ahmed Raza", "product": "Mechanical Keyboard", "amount": 159, "status": "Shipped", "date": "2026-06-09" },
+    { "id": 4, "orderNumber": "ORD-004", "customer": "Fatima Noor", "product": "4K Monitor", "amount": 599, "status": "Delivered", "date": "2026-06-08" },
+    { "id": 5, "orderNumber": "ORD-005", "customer": "Hassan Ali", "product": "USB Hub", "amount": 29, "status": "Pending", "date": "2026-06-12" },
+    { "id": 6, "orderNumber": "ORD-006", "customer": "Ayesha Khan", "product": "Webcam HD", "amount": 89, "status": "Delivered", "date": "2026-06-07" },
+    { "id": 7, "orderNumber": "ORD-007", "customer": "Bilal Ahmed", "product": "Gaming Headset", "amount": 199, "status": "Processing", "date": "2026-06-11" },
+    { "id": 8, "orderNumber": "ORD-008", "customer": "Zara Malik", "product": "Smartwatch", "amount": 249, "status": "Shipped", "date": "2026-06-10" },
+    { "id": 9, "orderNumber": "ORD-009", "customer": "Usman Tariq", "product": "Tablet 10 inch", "amount": 399, "status": "Cancelled", "date": "2026-06-06" },
+    { "id": 10, "orderNumber": "ORD-010", "customer": "Mariam Sheikh", "product": "Bluetooth Speaker", "amount": 79, "status": "Delivered", "date": "2026-06-09" },
+    { "id": 11, "orderNumber": "ORD-011", "customer": "Kamran Iqbal", "product": "External SSD 1TB", "amount": 149, "status": "Processing", "date": "2026-06-12" },
+    { "id": 12, "orderNumber": "ORD-012", "customer": "Hina Aslam", "product": "Wireless Earbuds", "amount": 129, "status": "Shipped", "date": "2026-06-10" }
+  ],
+  "notifications": [
+    { "id": 1, "title": "New Order Received", "message": "Order ORD-012 from Hina Aslam", "time": "5 minutes ago", "type": "order", "read": false },
+    { "id": 2, "title": "Payment Received", "message": "$1,299 from Ali Khan", "time": "1 hour ago", "type": "payment", "read": false },
+    { "id": 3, "title": "New Customer", "message": "Faisal Mahmood joined", "time": "2 hours ago", "type": "customer", "read": false },
+    { "id": 4, "title": "Monthly Report", "message": "Your June report is ready", "time": "1 day ago", "type": "report", "read": true },
+    { "id": 5, "title": "Server Update", "message": "System maintenance completed", "time": "2 days ago", "type": "system", "read": true }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
