@@ -10,14 +10,16 @@ import {
     HelpCircle,
     LogOut,
     Sparkles,
+    X,
 } from 'lucide-react';
 import ConfirmModal from '../ui/ConfirmModal';
 import toast from 'react-hot-toast';
+import { useThemeStore } from '../../store/themeStore';
 
 const Sidebar = () => {
     const [showLogoutModal, setShowLogoutModal] = useState(false);
+    const { isSidebarOpen, setSidebarOpen } = useThemeStore();
 
-    // Menu items with paths
     const menuItems = [
         { icon: LayoutDashboard, label: 'Dashboard', path: '/dashboard' },
         { icon: BarChart3, label: 'Analytics', path: '/analytics' },
@@ -31,19 +33,36 @@ const Sidebar = () => {
         { icon: HelpCircle, label: 'Help', path: '/help' },
     ];
 
-    // Handle logout
     const handleLogout = () => {
         setShowLogoutModal(false);
         toast.success('Logged out successfully!');
-        // Yahan aap real logout logic add kar sakte ho
+    };
+
+    // Close sidebar on mobile when navigating
+    const handleNavClick = () => {
+        if (window.innerWidth < 1024) {
+            setSidebarOpen(false);
+        }
     };
 
     return (
         <>
-            <aside className="fixed left-0 top-0 h-screen w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col z-40">
+            {/* Mobile Overlay */}
+            {isSidebarOpen && (
+                <div
+                    className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
+                    onClick={() => setSidebarOpen(false)}
+                />
+            )}
 
+            {/* Sidebar */}
+            <aside
+                className={`fixed left-0 top-0 h-screen w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col z-50 transition-transform duration-300 lg:translate-x-0 ${
+                    isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+                }`}
+            >
                 {/* Logo Section */}
-                <div className="p-6 border-b border-slate-200 dark:border-slate-800">
+                <div className="p-6 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
                     <div className="flex items-center gap-3">
                         <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/30">
                             <Sparkles className="w-5 h-5 text-white" />
@@ -57,10 +76,18 @@ const Sidebar = () => {
                             </p>
                         </div>
                     </div>
+
+                    {/* Close button (mobile only) */}
+                    <button
+                        onClick={() => setSidebarOpen(false)}
+                        className="lg:hidden w-8 h-8 flex items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                    >
+                        <X className="w-5 h-5 text-slate-500" />
+                    </button>
                 </div>
 
                 {/* Main Menu */}
-                <nav className="flex-1 p-4 space-y-1">
+                <nav className="flex-1 p-4 space-y-1 overflow-y-auto">
                     <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-3 mb-3">
                         Main Menu
                     </p>
@@ -68,6 +95,7 @@ const Sidebar = () => {
                         <NavLink
                             key={index}
                             to={item.path}
+                            onClick={handleNavClick}
                             className={({ isActive }) =>
                                 `w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 ${
                                     isActive
@@ -88,6 +116,7 @@ const Sidebar = () => {
                         <NavLink
                             key={index}
                             to={item.path}
+                            onClick={handleNavClick}
                             className={({ isActive }) =>
                                 `w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 ${
                                     isActive
@@ -101,7 +130,6 @@ const Sidebar = () => {
                         </NavLink>
                     ))}
 
-                    {/* Logout Button */}
                     <button
                         onClick={() => setShowLogoutModal(true)}
                         className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-red-50 dark:hover:bg-red-500/10 hover:text-red-600 dark:hover:text-red-400 transition-all duration-200"
@@ -129,7 +157,6 @@ const Sidebar = () => {
                 </div>
             </aside>
 
-            {/* Logout Confirmation Modal */}
             <ConfirmModal
                 isOpen={showLogoutModal}
                 onClose={() => setShowLogoutModal(false)}

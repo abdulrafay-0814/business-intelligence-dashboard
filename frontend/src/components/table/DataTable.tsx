@@ -23,7 +23,7 @@ type SortField = 'name' | 'revenue' | 'orders' | 'status' | 'region';
 type SortOrder = 'asc' | 'desc';
 
 const DataTable = () => {
-    const { customers, addNewCustomer, editCustomer, removeCustomer } = useDataStore();
+    const { customers, addNewCustomer, editCustomer, removeCustomer, addNotification } = useDataStore();
 
     // States
     const [searchQuery, setSearchQuery] = useState('');
@@ -109,6 +109,12 @@ const DataTable = () => {
         const today = new Date().toISOString().split('T')[0];
         exportToCSV(exportData, `customers-${today}`);
         toast.success(`Downloaded ${filteredCustomers.length} customers!`);
+        // Add notification
+        addNotification({
+            title: 'Report Downloaded',
+            message: `${filteredCustomers.length} customers exported to CSV`,
+            type: 'report',
+        });
     };
 
     // Add new customer
@@ -129,9 +135,21 @@ const DataTable = () => {
             if (editingCustomer) {
                 await editCustomer(editingCustomer.id, customerData);
                 toast.success('Customer updated successfully!');
+                // Add notification
+                addNotification({
+                    title: 'Customer Updated',
+                    message: `${customerData.name}'s information has been updated`,
+                    type: 'customer',
+                });
             } else {
                 await addNewCustomer(customerData);
                 toast.success('Customer added successfully!');
+                // Add notification
+                addNotification({
+                    title: 'New Customer Added',
+                    message: `${customerData.name} from ${customerData.region} joined`,
+                    type: 'customer',
+                });
             }
         } catch (error) {
             toast.error('Failed to save customer!');
@@ -144,8 +162,15 @@ const DataTable = () => {
         if (!deleteCustomer) return;
         setDeleteLoading(true);
         try {
+            const deletedName = deleteCustomer.name;
             await removeCustomer(deleteCustomer.id);
             toast.success('Customer deleted successfully!');
+            // Add notification
+            addNotification({
+                title: 'Customer Deleted',
+                message: `${deletedName} has been removed from your customer list`,
+                type: 'system',
+            });
             setDeleteCustomer(null);
         } catch (error) {
             toast.error('Failed to delete customer!');

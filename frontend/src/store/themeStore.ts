@@ -4,14 +4,18 @@ import type { Theme } from '../types';
 
 interface ThemeStore {
   theme: Theme;
+  isSidebarOpen: boolean;
   toggleTheme: () => void;
   setTheme: (theme: Theme) => void;
+  toggleSidebar: () => void;
+  setSidebarOpen: (open: boolean) => void;
 }
 
 export const useThemeStore = create<ThemeStore>()(
   persist(
     (set) => ({
       theme: 'light',
+      isSidebarOpen: false,
 
       toggleTheme: () =>
         set((state) => ({
@@ -19,9 +23,17 @@ export const useThemeStore = create<ThemeStore>()(
         })),
 
       setTheme: (theme) => set({ theme }),
+
+      toggleSidebar: () =>
+        set((state) => ({
+          isSidebarOpen: !state.isSidebarOpen,
+        })),
+
+      setSidebarOpen: (open) => set({ isSidebarOpen: open }),
     }),
     {
       name: 'theme-storage',
+      partialize: (state) => ({ theme: state.theme }), // Only save theme
     }
   )
 );

@@ -13,12 +13,12 @@ const Layout = ({ children }: LayoutProps) => {
       <Sidebar />
 
       {/* Main Content Area */}
-      <div className="ml-64">
+      <div className="lg:ml-64">
         {/* Header */}
         <Header />
 
         {/* Page Content */}
-        <main className="p-8">{children}</main>
+        <main className="p-4 md:p-8">{children}</main>
       </div>
     </div>
   );
